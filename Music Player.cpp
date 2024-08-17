@@ -31,7 +31,7 @@ void add_node(struct node *first)
     first->next=(struct node*)malloc(sizeof(struct node));
     first->prev=first;
     first=first->next;
-    cout<<"\n\a\a\a\aEnter Song name-  ";
+    cout<<"\n\a\a\a\aEnter Songs name-  ";
     scanf("%s",&a);
     strcpy(first->song,a);
     tofile(a);
