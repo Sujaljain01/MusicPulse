@@ -19,11 +19,11 @@ jobs:
 
       # Step 2: Install g++ (GNU Compiler)
       - name: Install g++
-        run: sudo apt-get install g++
+        run: sudo apt-get update && sudo apt-get install g++
 
-      # Step 3: Compile Music Player.cpp into an executable called 'music_player'
+      # Step 3: Compile Music_Player.cpp into an executable called 'music_player'
       - name: Compile Music Player
-        run: g++ -o music_player "Music Player.cpp"
+        run: g++ -o music_player "Music_Player.cpp"
 
       # Step 4: Run the compiled executable
       - name: Run Music Player
