@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>C++ Music Player</title>
+   </head>
+   <body>
+       <h1>C++ Music Player</h1>
+       <p>Download the latest version of the Music Player:</p>
+       <a id="download-link" href="#">Download Music Player</a>
+       <script>
+           fetch('https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO_NAME/releases/latest')
+               .then(response => response.json())
+               .then(data => {
+                   const downloadLink = document.getElementById('download-link');
+                   downloadLink.href = data.assets[0].browser_download_url;
+               });
+       </script>
+   </body>
+   </html>
+   
