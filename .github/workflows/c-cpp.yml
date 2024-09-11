@@ -1,23 +1,30 @@
-name: C/C++ CI
+name: C++ Build and Run
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+      # Step 1: Check out the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Install g++ (GNU Compiler)
+      - name: Install g++
+        run: sudo apt-get install g++
+
+      # Step 3: Compile Music_Player.cpp into an executable called 'music_player'
+      - name: Compile Music Player
+        run: g++ -o music_player "Music_Player.cpp"
+
+      # Step 4: Run the compiled executable
+      - name: Run Music Player
+        run: ./music_player
